@@ -1,0 +1,38 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: frontendapp-deployment
+  labels:
+    app: frontendapp
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: frontendapp
+  template:
+    metadata:
+      labels:
+        app: frontendapp 
+    spec:
+      containers:
+      - name: nodeserver
+        image: aminechourou/frontendapp:latest
+        ports:
+        - containerPort: 5000
+        
+        
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: frontendapp-service
+spec:
+  selector:
+    app: frontendapp 
+  type: NodePort
+  ports:
+  - protocol: TCP
+    port: 5001
+    targetPort: 5001
+    nodePort: 31111
