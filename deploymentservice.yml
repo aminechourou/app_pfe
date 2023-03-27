@@ -18,7 +18,7 @@ spec:
       - name: nodeserver
         image: aminechourou/frontendapp:latest
         ports:
-        - containerPort: 5001
+        - containerPort: 5000
         
         
 ---
@@ -33,6 +33,6 @@ spec:
   type: NodePort
   ports:
   - protocol: TCP
-    port: 5001
-    targetPort: 5001
+    port: 5000
+    targetPort: 5000
     nodePort: 31111
