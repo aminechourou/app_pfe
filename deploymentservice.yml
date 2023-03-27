@@ -18,7 +18,7 @@ spec:
       - name: nodeserver
         image: aminechourou/frontendapp:latest
         ports:
-        - containerPort: 5000
+        - containerPort: 5001
         
         
 ---
